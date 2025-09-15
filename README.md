@@ -200,7 +200,8 @@ print(encoded)  # vira números binários (one-hot)
 O Scikit-learn já traz datasets pequenos para prática (Iris, Breast Cancer, Digits, Wine...).
 
 No arquivo   tem a demostração da preparação e pré-processamento do Dataset Iris `(conjunto de dados que  consiste em 50 amostras de cada uma das três espécies de Iris ( Iris setosa, Iris virginica e Iris versicolor)`.
-<img width="1897" height="902" alt="image" src="https://github.com/user-attachments/assets/23768f75-547a-45ea-b4b6-7425c96beca3" />
+<img width="1898" height="823" alt="image" src="https://github.com/user-attachments/assets/a0407a65-35bf-4bdf-a7a7-0e9a508dd772" />
+
 
 #### ✅ Forma 2 — Usando um dataset de CSV (ex.: baixado da internet)
 > ##### 🔹  Onde conseguir datasets pequenos
