@@ -108,6 +108,93 @@ pip install scikit-learn
 - [x]  Editor para rodar os Códigos ( Jupiter Notebook)
 - [x]  Conhecimentos básicos de Python (mínimo necessário)
 ### Realizando a tarefa:
+#### 🚦 Passo a passo:
+1. Carregar o dataset (ex.: Iris, CSV etc.).
+```
+iris = load_iris()
+df = pd.DataFrame(iris.data, columns=iris.feature_names)
+df['target'] = iris.target
+```
+2. Inspecionar os dados (ver tamanho, tipos, valores faltantes, classes).
+```
+# tamanho (linhas, colunas)
+print("Shape:", df.shape)
+
+# primeiras linhas
+print(df.head())
+
+# tipos de dados
+print(df.info())
+
+# valores faltantes
+print("Valores faltantes por coluna:\n", df.isnull().sum())
+
+# distribuição do target
+print("Classes disponíveis:", df['target'].unique())
+print("Contagem por classe:\n", df['target'].value_counts())
+```
+3. Limpar/transformar os dados (tratar valores nulos, remover colunas inúteis, ajustar formatos).
+```
+# exemplo: remover colunas inúteis (não necessário no Iris)
+# df = df.drop(columns=['coluna_irrelevante'])
+
+# exemplo: tratar valores nulos
+df = df.fillna(df.mean(numeric_only=True))  # preenche nulos com média
+```
+4. Dividir em features (X) e target (y) (o que entra no modelo e o que queremos prever).
+```
+# X = dados de entrada (features)
+X = df.drop('target', axis=1)
+
+# y = o que queremos prever (rótulo / classe)
+y = df['target']
+
+print("Features (X):")
+print(X.head())
+print("\nTarget (y):")
+print(y.head())
+```
+5. Separar treino e teste (train_test_split) — muito importante para garantir que o modelo seja avaliado de forma justa.
+```
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+print("Tamanho treino:", X_train.shape)
+print("Tamanho teste:", X_test.shape)
+```
+6. Aplicar transformações:
+- 6.1 Imputação de valores faltantes
+```
+from sklearn.impute import SimpleImputer
+
+imputer = SimpleImputer(strategy='mean')
+X_train_imputed = imputer.fit_transform(X_train)
+X_test_imputed = imputer.transform(X_test)
+
+```
+- 6.2 Normalização / Padronização
+```
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train_imputed)
+X_test_scaled = scaler.transform(X_test_imputed)
+```
+- 6.3 Codificação de variáveis categóricas (se existissem)
+```
+from sklearn.preprocessing import OneHotEncoder
+
+encoder = OneHotEncoder(sparse_output=False, handle_unknown='ignore')
+categorical_data = [['vermelho'], ['azul'], ['verde']]
+encoded = encoder.fit_transform(categorical_data)
+
+print(encoded)  # vira números binários (one-hot)
+
+```
+
 #### ✅ Forma 1 — Usando um dataset nativo do Scikit-learn
 
 O Scikit-learn já traz datasets pequenos para prática (Iris, Breast Cancer, Digits, Wine...).
