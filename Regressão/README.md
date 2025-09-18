@@ -260,10 +260,36 @@ Com o modelo treinado, agora damos os dados de pacientes do teste (que ele nunca
  y_pred = model.predict(X_test)
 
 ```
-### 📏 Avaliação da Performance
+### 📈 Avaliação da Performance
+Quando treinamos um modelo de machine learning (classificação ou regressão), não basta só treinar: precisamos saber se ele realmente funciona. É aqui que entra a avaliação da performance.
 
-Não adianta só prever, temos que medir o quão próximo o modelo ficou da realidade.
-Métricas comuns para regressão:
+> Não adianta só prever, temos que medir o quão próximo o modelo ficou da realidade.
+
+#### 🔹 O que significa avaliar a performance?
+Avaliar a performance significa medir quão bem o modelo consegue fazer previsões corretas em dados que ele não viu durante o treino.
+
+Exemplo :
+
+- O modelo tenta prever o nível de glicose de pacientes.
+- Se o modelo prever 140 mg/dL e o valor real for 145 mg/dL, o erro é 5 mg/dL.
+- Avaliar o desempenho consiste em resumir esses erros para todos os pacientes e entender se o modelo é confiável.
+  
+> ⚠️ Lembre-se: treinar o modelo e avaliar nos mesmos dados é enganoso. O modelo pode simplesmente “decorar” os exemplos.
+
+#### 🔹Por que precisamos avaliar?
+Avaliar é essencial porque:
+
+1. Medimos a qualidade do modelo → não adianta ter um modelo se ele não funciona na prática.
+
+2. Evitamos overfitting → o modelo pode aprender “truques” dos dados de treino que não funcionam em novos pacientes.
+
+3. Comparamos modelos → saber qual algoritmo é mais adequado para o problema.
+4. Ajudamos na tomada de decisão → médicos, gestores ou sistemas precisam confiar nas previsões.
+
+Exemplo:
+> Um modelo que prevê diabetes errado 80% das vezes é inútil na prática clínica, mesmo que tenha sido treinado com muitos dados.
+
+#### 🔹Métricas comuns para regressão:
 
 - MAE (Mean Absolute Error) → erro médio em unidades reais.
 
