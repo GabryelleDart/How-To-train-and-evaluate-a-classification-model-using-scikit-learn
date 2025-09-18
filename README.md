@@ -1,8 +1,32 @@
 # How-To-train-and-evaluate-a-classification-model-using-scikit-learn.
+Este **How to** é um guia  para iniciantes que desejam aprender a treinar, prever e avaliar modelos de Machine Learning usando Python e a biblioteca Scikit-learn.
+
+Ele cobre os dois principais tipos de aprendizado supervisionado: Classificação (categorias) e Regressão (valores contínuos), mostrando passo a passo como preparar os dados, treinar os modelos, fazer previsões e avaliar a performance.
 
 ## Sobre o Projeto:
+O objetivo deste projeto é 
+
+- Demonstrar como preparar dados para Machine Learning.
+- Treinar modelos de classificação e regressão.
+- Fazer previsões em novos dados.
+- Avaliar a performance do modelo usando métricas específicas.
+- Interpretar resultados e comparar algoritmos.
+
+> Como exemplo prático, usamos o clássico dataset Iris, que classifica flores em três espécies com base em suas características físicas.
+> 
 ## ⚙️ Estrutura do Projeto
 ### Pré-requisitos:
+Para executar os exemplos, você precisará de:
+- Python 3.8+
+
+- Bibliotecas Python:
+    - scikit-learn
+>  **Instalação rápida :**
+> pip install scikit-learn
+
+> Bibliotecas : numpy, pandas e matplotlib são recomendadas, mas não  fundamentais.
+
+
 ## O que é o Skitit- learn?
 O Scikit-learn (ou apenas sklearn) é uma biblioteca de aprendizado de máquina em Python.
 
@@ -17,6 +41,8 @@ Com o Scikit-learn, você pode:
 - Avaliar modelos → métricas como acurácia, precisão, recall, F1-score.
 - Fazer seleção de atributos → escolher variáveis mais importantes.
 - Fazer validação cruzada → avaliar se o modelo generaliza bem.
+  
+> 💡 Dica: O Scikit-learn segue uma lógica simples e padronizada: fit() → treinar, predict() → prever, score() → avaliar.
 
 ### Exemplos de algoritmos que o Scikit-learn oferece
 
@@ -35,5 +61,16 @@ Ele é considerado a "porta de entrada" para quem está aprendendo ciência de d
 
 > 👉 Resumindo: o Scikit-learn é como uma “caixa de ferramentas” completa para testar rapidamente ideias em Machine Learning.
 
+### 📌 Próximos passos no projeto
+1. Carregar e explorar os dados (ex.: Iris para classificação, Diabetes para regressão).
 
+2. Pré-processar os dados (normalização, tratamento de valores faltantes, divisão treino/teste).
+
+3. Treinar modelos de classificação (ex.: KNN, Logistic Regression, Decision Tree).
+
+4. Treinar modelos de regressão (ex.: Linear Regression, Ridge, Lasso).
+
+5. Fazer previsões em novos dados.
+
+6. Avaliar desempenho do modelo usando métricas específicas (acurácia, R², RMSE etc.).
 
