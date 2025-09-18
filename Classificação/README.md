@@ -1,229 +1,220 @@
-# How-To-train-and-evaluate-a-classification-model-using-scikit-learn.
+# 📘 Classificação com Scikit-learn
+Este **How to** apresenta uma introdução completa a modelos de classificação, explicando conceitos, aplicações, pré-processamento, avaliação de performance e implementação prática em Python com scikit-learn.
+## 📌 O que é Classificação?
+Classificação é uma técnica de aprendizado supervisionado utilizada quando a variável alvo (y) é categórica (categorias ou classes).
+> 👉 Exemplo na área da saúde: diagnosticar se um paciente tem diabetes ou não tem diabetes a partir de variáveis como idade, peso e histórico médico.
+### ⚡ Diferença entre Classificação e Regressão
+- Classificação → prevê categorias (ex.: "Iris-setosa", "Iris-versicolor", "Iris-virginica").
+- Regressão → prevê valores contínuos (ex.: "nível de glicose = 135 mg/dL").
+### 🌸 Exemplos de problemas resolvidos com Classificação
+- Diagnóstico de doenças (diabetes, câncer).
 
-## Sobre o Projeto:
-## ⚙️ Estrutura do Projeto
-### Pré-requisitos:
-## O que é o Skitit- learn?
-O Scikit-learn (ou apenas sklearn) é uma biblioteca de aprendizado de máquina em Python.
+- Classificação de imagens médicas (tumor benigno ou maligno).
 
-Ela foi construída sobre outras bibliotecas muito usadas em ciência de dados, como NumPy, SciPy e matplotlib, e se tornou uma das ferramentas mais populares para treinar, testar e avaliar modelos de Machine Learning de forma simples e eficiente.
+- Previsão de risco de readmissão hospitalar (alto, médio, baixo).
 
-### Para que serve?
+ - Identificação de espécies de plantas ou animais.
+## 🔹 Principais Algoritmos de Classificação no Scikit-learn
+### 1. Regressão Logística (LogisticRegression)
 
-Com o Scikit-learn, você pode:
+- 📖 Apesar do nome, é classificador. Modela a probabilidade de pertencer a uma classe.
 
-- Treinar modelos de Machine Learning → como regressão, classificação, clusterização, etc.
-- Pré-processar dados → normalizar, padronizar, dividir entre treino e teste.
-- Avaliar modelos → métricas como acurácia, precisão, recall, F1-score.
-- Fazer seleção de atributos → escolher variáveis mais importantes.
-- Fazer validação cruzada → avaliar se o modelo generaliza bem.
+- ✅ Bom para problemas lineares e interpretáveis.
 
-### Exemplos de algoritmos que o Scikit-learn oferece
+- 🏥 Exemplo: prever se um paciente tem diabetes baseado em exames laboratoriais.
 
-- Classificação → Árvores de decisão, Regressão logística, SVM, Naive Bayes, KNN.
-- Regressão → Regressão linear, Regressão ridge/lasso.
-- Clusterização → K-Means, DBSCAN, Agglomerative Clustering.
-- Redução de dimensionalidade → PCA (Análise de Componentes Principais).
+### 2. K-Nearest Neighbors (KNeighborsClassifier)
 
-### Por que é importante?
+- 📖 Classifica novos pontos com base nas classes dos k vizinhos mais próximos.
 
-Ele é considerado a "porta de entrada" para quem está aprendendo ciência de dados, porque:
+- ✅ Simples, eficiente para datasets pequenos.
 
-- Tem interface padronizada (todos os modelos seguem a lógica fit → treinar, predict → prever).
-- É bem documentado e com muitos exemplos.
-- Funciona muito bem em datasets pequenos e médios.
+- 🏥 Exemplo: classificar tipo de célula comparando com células conhecidas.
 
-> 👉 Resumindo: o Scikit-learn é como uma “caixa de ferramentas” completa para testar rapidamente ideias em Machine Learning.
+### 3. Support Vector Classifier (SVC)
 
-## O que são Modelos de Classificação?
-Um modelo de classificação é um tipo de algoritmo de Machine Learning que tem como objetivo prever uma categoria (classe) a partir de dados de entrada.
+- 📖 Encontra o hiperplano que separa melhor as classes.
 
-👉 Exemplos do dia a dia:
+- ✅ Excelente para problemas lineares e não lineares usando kernel.
 
-- Prever se um e-mail é spam ou não spam.
-- Diagnosticar se um paciente tem doença X ou não.
-- Reconhecer uma imagem como gato ou cachorro.
+- 🏥 Exemplo: identificar pacientes de alto risco com base em múltiplos fatores.
 
-> Ou seja, ao invés de prever um número (como na regressão), a classificação lida com rótulos/categorias.
+### 4. Decision Tree Classifier (DecisionTreeClassifier)
 
-### Para que servem ?
-Os modelos de classificação servem para tomar decisões automáticas baseadas em dados, atribuindo categorias a novos exemplos.
+- 📖 Divide os dados usando regras de decisão em árvore.
 
-Em outras palavras: eles ajudam a responder perguntas do tipo *“isso é A ou B?” ou “isso pertence a qual grupo?”*.
+- ✅ Fácil de interpretar e visualizar.
 
-📌 Exemplos práticos
-- Diagnóstico de doenças → prever se um paciente tem diabetes (sim/não) com base em exames de sangue.
-- Detecção de câncer → classificar uma imagem de raio-X ou mamografia em câncer maligno ou benigno.
-- Covid-19 → identificar, a partir de sintomas e exames, se o paciente está infectado ou não infectado.
-- Doenças cardíacas → prever risco de infarto (alto risco, médio risco, baixo risco).
-- Exames laboratoriais → classificar resultados em normal ou alterado.
-- Saúde mental → analisar questionários e classificar se a pessoa apresenta sinais de depressão ou não.
-- Triagem hospitalar → categorizar pacientes em emergência, urgência ou não urgente.
+- 🏥 Exemplo: decidir se um paciente deve receber um tratamento específico.
 
----
-&nbsp;<br>
-&nbsp;<br>
-&nbsp;<br>
-&nbsp;<br>
+### 5. Random Forest Classifier (RandomForestClassifier)
+
+- 📖 Conjunto de árvores de decisão que votam na classe final.
+
+- ✅ Mais robusto que uma árvore individual.
+
+- 🏥 Exemplo: prever diagnóstico de doença baseado em múltiplos exames.
+
+### 6. Gradient Boosting Classifier (GradientBoostingClassifier)
+
+- 📖 Cria árvores sequenciais, cada uma corrigindo os erros da anterior.
+
+- ✅ Alta performance em dados tabulares.
+
+- 🏥 Exemplo: classificar risco de complicações hospitalares.
+
+### 7. AdaBoost Classifier (AdaBoostClassifier)
+
+- 📖 Dá mais peso a exemplos onde o modelo anterior errou.
+
+- ✅ Bom para lidar com ruído moderado.
+
+- 🏥 Exemplo: prever readmissão hospitalar em casos inconsistentes.
+
+### 8. Naive Bayes (GaussianNB)
+
+- 📖 Baseado no teorema de Bayes, assume independência entre atributos.
+
+- ✅ Simples, rápido e funciona bem com pequenas amostras.
+
+- 🏥 Exemplo: classificar pacientes com base em sintomas.
+
+| Modelo                     | Descrição                | Vantagens                | Desvantagens                           | Exemplo em Saúde          |
+|-----------------------------|--------------------------|--------------------------|----------------------------------------|--------------------------|
+| LogisticRegression         | Probabilidade de classe  | Interpretável            | Linear, não captura relações complexas | Diagnóstico de diabetes   |
+| KNeighborsClassifier       | Vizinhos mais próximos   | Simples, não paramétrico | Lento com muitos dados                 | Classificação de células  |
+| SVC                        | Hiperplano separador     | Não linear, robusto      | Pode ser lento em grandes bases        | Risco de complicações     |
+| DecisionTreeClassifier     | Regras de decisão        | Fácil de interpretar     | Overfitting                            | Decisão de tratamento     |
+| RandomForestClassifier     | Floresta de árvores      | Robusto, generaliza bem  | Menos interpretável                    | Diagnóstico complexo      |
+| GradientBoostingClassifier | Árvores sequenciais      | Alta performance         | Mais lento que Random Forest           | Risco hospitalar          |
+| AdaBoostClassifier         | Reponderação de exemplos | Lida bem com ruído       | Sensível a outliers extremos           | Readmissão hospitalar     |
+| GaussianNB                 | Probabilidade com Bayes  | Simples e rápido         | Supõe independência                    | Classificação de sintomas |
 
 
-## 1° task: Preparar e pré-processar um dataset pequeno para experimentação
-> A tarefa consiste em pegar um conjunto de dados pequeno e deixá-lo "arrumado" para que o computador consiga aprender com ele.
+## 🌸 Dataset Iris (Scikit-learn)
+O dataset Iris é um clássico de classificação. Contém 150 flores de 3 espécies:
 
-O pré- processamento consistiria em:
+- **Iris-setosa**
 
-- **Organizar os dados** → tirar duplicados, completar onde falta informação ou decidir jogar fora dados incompletos.
+- **Iris-versicolor**
 
+- **Iris-virginica**
 
-- **Traduzir informações em números** → o computador entende melhor números do que palavras.
-    - Ex: transformar “Masculino/Feminino” em `0` e `1`.
-- **Colocar tudo na mesma escala** → se uma coluna tem valores como “idade = 25” e outra “salário = 8000”, o modelo pode dar mais importância pro salário só porque é um número maior. A normalização serve pra “equilibrar” isso.
-- **Separar treino e teste** → é como estudar para uma prova: você aprende com um pedaço do material (treino) e depois se testa com outro pedaço (teste) para ver se realmente aprendeu.
+Cada flor possui 4 características:
 
-Então, pré-processar um dataset pequeno serve para limpar, organizar e transformar os dados em um formato que o modelo de inteligência artificial consiga entender e aprender de verdade.
-Assim, quando você for treinar o modelo (tipo uma árvore de decisão, uma regressão ou uma rede simples), ele não vai se confundir com valores faltando, categorias em texto ou números em escalas muito diferentes.
-### Pré- requisitos para essa tarefa:
-- [x]  Python instalado
+- Sepal Length (cm)
 
-```jsx
-python --version
+- Sepal Width (cm)
 
+- Petal Length (cm)
+
+- Petal Width (cm)
+
+> Objetivo: prever a espécie da flor com base nas medidas das pétalas e sépalas.
+
+### 💻 Carregando o dataset
 ```
-
-- [x]  Bibliotecas :
-- `numpy` (cálculos numéricos)
-- `pandas` (manipulação de dados)
-- `matplotlib` / `seaborn` (visualização)
-- `scikit-learn` (modelos de machine learning)
-
-```jsx
-python -m pip show scikit-learn
-//caso nao apareça baixe usando 
-conda install scikit-learn
-//ou 
-pip install scikit-learn
-
-```
-
-- [x]  Editor para rodar os Códigos ( Jupiter Notebook)
-- [x]  Conhecimentos básicos de Python (mínimo necessário)
-### Realizando a tarefa:
-#### 🚦 Passo a passo:
-1. Carregar o dataset (ex.: Iris, CSV etc.).
-```
+from sklearn.datasets import load_iris
 iris = load_iris()
-df = pd.DataFrame(iris.data, columns=iris.feature_names)
-df['target'] = iris.target
-```
-2. Inspecionar os dados (ver tamanho, tipos, valores faltantes, classes).
-```
-# tamanho (linhas, colunas)
-print("Shape:", df.shape)
 
-# primeiras linhas
-print(df.head())
+X = iris.data      # Features (4 colunas)
+y = iris.target    # Classes (0=setosa, 1=versicolor, 2=virginica)
 
-# tipos de dados
-print(df.info())
-
-# valores faltantes
-print("Valores faltantes por coluna:\n", df.isnull().sum())
-
-# distribuição do target
-print("Classes disponíveis:", df['target'].unique())
-print("Contagem por classe:\n", df['target'].value_counts())
+print("Formato de X:", X.shape)  # (150, 4)
+print("Formato de y:", y.shape)  # (150,)
 ```
-3. Limpar/transformar os dados (tratar valores nulos, remover colunas inúteis, ajustar formatos).
-```
-# exemplo: remover colunas inúteis (não necessário no Iris)
-# df = df.drop(columns=['coluna_irrelevante'])
+### 🧹 Pré-processamento dos Dados
+Antes de treinar, os dados precisam ser preparados:
+> O scikit learn já traz os dados do dataset `iris` pré-processado, contudo  é recomendado reconferir, além de que, para outros datasets, esses passos serão de suma importância.
 
-# exemplo: tratar valores nulos
-df = df.fillna(df.mean(numeric_only=True))  # preenche nulos com média
-```
-4. Dividir em features (X) e target (y) (o que entra no modelo e o que queremos prever).
-```
-# X = dados de entrada (features)
-X = df.drop('target', axis=1)
+> Para mais informações sobre pré- processamento de dados volte a [Pré Processamento](https://github.com/GabryelleDart/How-To-train-and-evaluate-a-classification-model-using-scikit-learn/tree/main/Pr%C3%A9-Processamento) .
 
-# y = o que queremos prever (rótulo / classe)
-y = df['target']
+1. Inspeção inicial
 
-print("Features (X):")
-print(X.head())
-print("\nTarget (y):")
-print(y.head())
-```
-5. Separar treino e teste (train_test_split) — muito importante para garantir que o modelo seja avaliado de forma justa.
-```
-from sklearn.model_selection import train_test_split
+    - Identificar tipos de dados, valores faltantes, outliers.
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42, stratify=y
-)
+    - Ferramentas: df.info(), df.describe().
 
-print("Tamanho treino:", X_train.shape)
-print("Tamanho teste:", X_test.shape)
-```
-6. Aplicar transformações:
-- 6.1 Imputação de valores faltantes
-```
-from sklearn.impute import SimpleImputer
+2. Tratar valores faltantes
 
-imputer = SimpleImputer(strategy='mean')
-X_train_imputed = imputer.fit_transform(X_train)
-X_test_imputed = imputer.transform(X_test)
+    - Remover linhas/colunas incompletas.
+
+    - Preencher com média/mediana (SimpleImputer).
+
+3. Transformar variáveis categóricas
+
+    - Ex.: “fuma = sim/não” → converter para 0 e 1.
+
+    - Usar OneHotEncoder ou pd.get_dummies.
+
+4. Escalonar variáveis
+
+    - Padrão comum: StandardScaler ou MinMaxScaler.
+
+5. Separar dados de treino e teste
+### 📏 Treinando um modelo de classificação
+O KNN (K-Nearest Neighbors) é um dos algoritmos mais simples de classificação. Ele funciona de maneira muito intuitiva:
+> Imagine que você está em um jardim cheio de flores de diferentes espécies. Uma nova flor aparece e você quer descobrir a qual espécie ela pertence.
+> O KNN olha para as K flores mais próximas dela (os vizinhos mais próximos) e vota qual espécie é mais comum entre esses vizinhos. A espécie mais frequente será a previsão do modelo.
+```
+    from sklearn.neighbors import KNeighborsClassifier
+    
+    
+    knn = KNeighborsClassifier(n_neighbors=3)
 
 ```
-- 6.2 Normalização / Padronização
-```
-from sklearn.preprocessing import StandardScaler
+> 🖐 **n_neighbors=3** significa que o modelo vai olhar para as **3 flores mais próximas** e escolher a espécie que aparecer mais vezes.
 
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train_imputed)
-X_test_scaled = scaler.transform(X_test_imputed)
+Treinar o modelo significa ensinar o KNN usando os dados de treino. Ele vai "memorizar" as posições das flores no espaço das características para que possa comparar com novas flores depois.
 ```
-- 6.3 Codificação de variáveis categóricas (se existissem)
-```
-from sklearn.preprocessing import OneHotEncoder
-
-encoder = OneHotEncoder(sparse_output=False, handle_unknown='ignore')
-categorical_data = [['vermelho'], ['azul'], ['verde']]
-encoded = encoder.fit_transform(categorical_data)
-
-print(encoded)  # vira números binários (one-hot)
+    knn.fit(X_train, y_train)
 
 ```
+> ✅ Aqui, não há magia de cálculos complexos: o KNN apenas memoriza os exemplos de treino e suas classes.
 
-#### ✅ Forma 1 — Usando um dataset nativo do Scikit-learn
+> 📌 Diferente de regressão linear, ele não tenta desenhar uma linha, ele se baseia na proximidade.
 
-O Scikit-learn já traz datasets pequenos para prática (Iris, Breast Cancer, Digits, Wine...).
+### 📏 Previsões
+Agora podemos dar flores do conjunto de teste e perguntar ao KNN: “Qual espécie você acha que essa flor é?”
+```
+    y_pred = knn.predict(X_test)
+    print("Previsões do KNN:", y_pred)
 
-No arquivo   tem a demostração da preparação e pré-processamento do Dataset Iris `(conjunto de dados que  consiste em 50 amostras de cada uma das três espécies de Iris ( Iris setosa, Iris virginica e Iris versicolor)`.
-<img width="1898" height="823" alt="image" src="https://github.com/user-attachments/assets/a0407a65-35bf-4bdf-a7a7-0e9a508dd772" />
+```
+> 💡 Cada número na lista y_pred representa a classe prevista:
 
+> 0 → Iris-setosa, 1 → Iris-versicolor, 2 → Iris-virginica
 
-#### ✅ Forma 2 — Usando um dataset de CSV (ex.: baixado da internet)
-> ##### 🔹  Onde conseguir datasets pequenos
-> Aqui alguns lugares ótimos:
-> 1. **Nativos no Scikit-learn** → Iris, Wine, Breast Cancer, Digits.
-> 2. **Seaborn** → vem com vários datasets prontos (`sns.load_dataset("tips")`).
-> 3. **Kaggle** → plataforma com milhares de datasets (precisa conta gratuita). `https://www.kaggle.com/datasets`
-> 4. **UCI Machine Learning Repository** → datasets clássicos. ` https://archive.ics.uci.edu/ml/index.php`
-> 5. **GitHub** → vários repositórios com datasets em CSV.
+### 📈 Avaliação da Performance
+Para classificação, usamos métricas diferentes da regressão:
+- **Acurácia** → % de previsões corretas
+- **Matriz de Confusão** → mostra acertos e erros por classe
+- **Precision, Recall e F1-score** → medidas detalhadas por classe
+```
+    from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+    
+    accuracy = accuracy_score(y_test, y_pred)
+    print("Acurácia:", accuracy)
+    
+    cm = confusion_matrix(y_test, y_pred)
+    print("Matriz de Confusão:\n", cm)
+    
+    report = classification_report(y_test, y_pred, target_names=iris.target_names)
+    print("Relatório de Classificação:\n", report)
 
-#### ✅ Forma 3 — Criando um dataset aleatório (útil para teste rápido)
-Você pode gerar dados fictícios para treinar um modelo.
+```
+> 🔹 Interpretando a matriz de confusão:
+> - Cada linha representa a classe real.
+> - Cada coluna representa a classe prevista.
+> - O ideal é que todos os números estejam na diagonal principal (acertos).
+      
+> 🔹 Exemplo de interpretação:
+> - Se a matriz mostra que algumas versicolor foram classificadas como virginica, isso indica que o modelo confundiu essas duas espécies.
+> - A acurácia geral mostra quanto ele acerta em porcentagem.
 
----
-&nbsp;<br>
-&nbsp;<br>
-&nbsp;<br>
-&nbsp;<br> 
-
-## 2° task: Avaliar rapidamente o desempenho do modelo treinado
-### 🔹 O que significa avaliar o desempenho?
-### 🔹Por que precisamos avaliar?
-### 🔹 Para que serve?
-### 🔹 Formas de avaliar modelos de classificação:
-### 🔹 O que define se foi bem avaliado ou não?
+### 📝 Dicas Importantes para Classificação
+- Sempre verifique o balanceamento das classes; classes desbalanceadas podem prejudicar o modelo.
+- Use cross-validation para avaliar robustez do modelo.
+- Experimente diferentes algoritmos e compare acurácia e F1-score.
+- Para problemas reais, trate valores faltantes, outliers e escalonamento cuidadosamente.
+- Para modelos complexos (Random Forest, Boosting), use feature importance para interpretar os fatores mais relevantes.
