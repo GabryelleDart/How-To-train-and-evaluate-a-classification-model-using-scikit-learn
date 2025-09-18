@@ -7,13 +7,14 @@ Classificação é uma técnica de aprendizado supervisionado utilizada quando a
 - Classificação → prevê categorias (ex.: "Iris-setosa", "Iris-versicolor", "Iris-virginica").
 - Regressão → prevê valores contínuos (ex.: "nível de glicose = 135 mg/dL").
 ### 🌸 Exemplos de problemas resolvidos com Classificação
-- Diagnóstico de doenças (diabetes, câncer).
+- Diagnóstico de doenças → prever se um paciente tem diabetes (sim/não) com base em exames de sangue.
+- Detecção de câncer → classificar uma imagem de raio-X ou mamografia em câncer maligno ou benigno.
+- Covid-19 → identificar, a partir de sintomas e exames, se o paciente está infectado ou não infectado.
+- Doenças cardíacas → prever risco de infarto (alto risco, médio risco, baixo risco).
+- Exames laboratoriais → classificar resultados em normal ou alterado.
+- Saúde mental → analisar questionários e classificar se a pessoa apresenta sinais de depressão ou não.
+- Triagem hospitalar → categorizar pacientes em emergência, urgência ou não urgente.
 
-- Classificação de imagens médicas (tumor benigno ou maligno).
-
-- Previsão de risco de readmissão hospitalar (alto, médio, baixo).
-
- - Identificação de espécies de plantas ou animais.
 ## 🔹 Principais Algoritmos de Classificação no Scikit-learn
 ### 1. Regressão Logística (LogisticRegression)
 
