@@ -152,9 +152,3 @@ Você pode gerar dados fictícios para treinar um modelo.
 &nbsp;<br>
 &nbsp;<br> 
 
-## 2° task: Avaliar rapidamente o desempenho do modelo treinado
-### 🔹 O que significa avaliar o desempenho?
-### 🔹Por que precisamos avaliar?
-### 🔹 Para que serve?
-### 🔹 Formas de avaliar modelos de classificação:
-### 🔹 O que define se foi bem avaliado ou não?
